@@ -1,6 +1,16 @@
 # Hizz-Web | Cognitive Sanctuary
 
-![Dashboard Preview Placeholder](./screenshot_placeholder.png)
+## Visual Experience
+
+<p align="center">
+  <img src="./public/screenshots/dashboard.png" width="800" alt="Hizz-Web Dashboard">
+</p>
+
+<div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 10px;">
+  <img src="./public/screenshots/welcome.png" width="400" alt="Welcome Screen">
+  <img src="./public/screenshots/focus.png" width="400" alt="Focus Mode Reader">
+  <img src="./public/screenshots/library.png" width="400" alt="Library and History">
+</div>
 
 ## The 'Why'
 The modern web is actively hostile to focused attention, drowning users in digital noise, infinite scrolls, and sensory overload. Hizz-Web provides a quiet, intentional digital sanctuary designed specifically for neurodivergent individuals and those experiencing cognitive fatigue. By stripping away extraneous UI elements and leveraging AI to parse dense information into digestible sparks, it restores agency and makes deep reading accessible and sustainable.
