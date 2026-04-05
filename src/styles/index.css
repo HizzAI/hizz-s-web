@@ -1,0 +1,240 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ===================== FONTS ===================== */
+@font-face {
+  font-family: 'OpenDyslexic';
+  src: local('Comic Sans MS');
+  /* In production: load actual OpenDyslexic woff2 here */
+}
+
+/* ===================== BASE ===================== */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Light mode - Calm Cream */
+body {
+  background-color: #F5F5DC;
+  color: #1a1a1a;
+}
+
+/* Dark mode - Zenith Dark */
+.dark body {
+  background-color: #09090b;
+  color: #fafafa;
+}
+
+/* ===================== GLASSMORPHISM ===================== */
+.glass {
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-light {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.dark .glass {
+  background: rgba(18, 18, 21, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.dark .glass-light {
+  background: rgba(24, 24, 27, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* ===================== SHIMMER LOADING ===================== */
+.shimmer {
+  background: linear-gradient(
+    90deg,
+    rgba(248, 203, 70, 0.0) 25%,
+    rgba(248, 203, 70, 0.15) 50%,
+    rgba(248, 203, 70, 0.0) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.8s infinite;
+}
+
+.dark .shimmer {
+  background: linear-gradient(
+    90deg,
+    rgba(255,255,255,0.0) 25%,
+    rgba(255,255,255,0.06) 50%,
+    rgba(255,255,255,0.0) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.8s infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+/* ===================== BIONIC TEXT ===================== */
+.bionic-text b {
+  font-weight: 800;
+  color: #1a1a1a;
+}
+
+.dark .bionic-text b {
+  color: #fafafa;
+}
+
+/* ===================== FOCUS RULER ===================== */
+.focus-ruler {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 1.8em;
+  background: rgba(248, 203, 70, 0.18);
+  border-radius: 4px;
+  pointer-events: none;
+  transition: top 0.08s linear;
+  z-index: 10;
+}
+
+/* ===================== SCROLLBAR ===================== */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb {
+  background: rgba(248, 203, 70, 0.4);
+  border-radius: 99px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(248, 203, 70, 0.8);
+}
+
+/* ===================== DYSLEXIC FONT ===================== */
+.font-dyslexic * {
+  font-family: 'OpenDyslexic', 'Comic Sans MS', cursive !important;
+  letter-spacing: 0.05em;
+  word-spacing: 0.1em;
+}
+
+/* ===================== TOGGLE SWITCH ===================== */
+.toggle-switch {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  width: 44px;
+  height: 24px;
+  cursor: pointer;
+}
+
+.toggle-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+  position: absolute;
+}
+
+.toggle-thumb {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0,0,0,0.15);
+  border-radius: 99px;
+  transition: background-color 0.2s;
+}
+
+.dark .toggle-thumb {
+  background-color: rgba(255,255,255,0.15);
+}
+
+.toggle-thumb::after {
+  content: '';
+  position: absolute;
+  left: 3px;
+  top: 3px;
+  width: 18px;
+  height: 18px;
+  background: white;
+  border-radius: 50%;
+  transition: transform 0.2s ease;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+}
+
+input:checked + .toggle-thumb {
+  background-color: #F8CB46;
+}
+
+input:checked + .toggle-thumb::after {
+  transform: translateX(20px);
+}
+
+/* ===================== RANGE SLIDER ===================== */
+input[type="range"] {
+  -webkit-appearance: none;
+  height: 4px;
+  background: rgba(0,0,0,0.15);
+  border-radius: 99px;
+  outline: none;
+}
+
+.dark input[type="range"] {
+  background: rgba(255,255,255,0.15);
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 16px;
+  height: 16px;
+  background: #F8CB46;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 0 0 3px rgba(248,203,70,0.25);
+}
+
+/* ===================== ANIMATIONS ===================== */
+.animate-fade-in {
+  animation: fadeIn 0.4s ease-out both;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.35s ease-out both;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ===================== HIGHLIGHTED PARAGRAPH ===================== */
+.paragraph-highlight {
+  background: rgba(248, 203, 70, 0.25);
+  border-left: 3px solid #F8CB46;
+  border-radius: 4px;
+  padding: 4px 8px;
+  transition: background 0.3s ease;
+}
